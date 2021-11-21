@@ -20,4 +20,6 @@ public class ValidationAddressEngine implements Predicate<Address> {
     public boolean test(Address address) {
         return true;
     }
+
+    public boolean isValidateAddress(Address address) { return true; }
 }

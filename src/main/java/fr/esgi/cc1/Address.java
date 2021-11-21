@@ -7,37 +7,18 @@ public class Address {
     private final String street;
     private final String city;
 
-
-    private Address(int id, int number, String street, String city) {
+    public Address(int id, String city, int number, String street) {
         this.id = id;
+        this.city = city;
         this.number = number;
         this.street = street;
-        if (!checkCityPreconditions(city)) {
-            throw new IllegalArgumentException("The city must be set.");
-        }
-        this.city = city;
     }
 
-    public static Address of(int id, int number, String street, String city) {
-        Address address = new Address(id, number, street,  city);
-        if (ValidationAddressEngine.getInstance().test(address)) {
-            return address;
-        }
-        throw new IllegalArgumentException("Illegal arguments");
-    }
+    public int getId() {return id;}
 
-    private boolean checkCityPreconditions(String city) {
-        if (city == null) {
-            return false;
-        }
-        return true;
-    }
+    public String getCity() {return city; }
 
-    public int getId() {
-        return id;
-    }
+    public int getNumber() { return number;}
 
-    public String getCity() {
-        return city;
-    }
+    public String getStreet() { return street;}
 }
